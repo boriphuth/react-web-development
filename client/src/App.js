@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from "./components/Header";
 import Monitor from "./components/monitor/Monitor";
 import Footer from "./components/Footer";
-import ProductItem from "./components/product/ProductItem";
+// import ProductItem from "./components/product/ProductItem";
 
 class App extends Component {
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class ProductItem extends Component {
 
+    // eslint-disable-next-line
     constructor(props) {
         super(props);
     }
@@ -10,7 +11,8 @@ class ProductItem extends Component {
         const {productName, unitPrice, thumbnail} = this.props.product;
         return (
             <div className="col-md-3 col-sm-6">
-                <img className="img-fluid img-thumbnail" src={thumbnail} />
+              {/* eslint-disable-next-line */}
+                <img className="img-fluid img-thumbnail" src={ thumbnail } />
                 <h5 className="mt-2">{productName}</h5>
                 <p className="title text-right" >{unitPrice} THB</p>
                 {this.props.onAddOrder &&  <button className="btn btn-block btn-secondary title" onClick={() => this.props.onAddOrder(this.props.product)} >

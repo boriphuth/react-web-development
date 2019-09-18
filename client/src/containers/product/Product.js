@@ -15,6 +15,18 @@ class Product extends Component {
         this.setState({products : res.data});
     });
   }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <div className="container-fluid">
+          <h1>รายการสั่งซื้อ</h1>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default Product;

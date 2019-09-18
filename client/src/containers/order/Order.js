@@ -10,22 +10,24 @@ class Order extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/orders").then(res => {
-      this.setState({orders: res.data});
+    axios.get("http://localhost:3001/orders").then(response => {
+      this.setState({orders: response.data});
     });
   }
 
   delOrder(order) {
-    axios.delete("http://localhost:3001/orders/" + order.id).then(res => {
-      axios.get("http://localhost:3001/orders").then(res => {
-        this.setState({orders: res.data});
+    axios.delete("http://localhost:3001/orders/" + order.id).then(response => {
+      axios.get("http://localhost:3001/orders").then(response => {
+        this.setState({orders: response.data});
       });
     });
   }
 
   showOrders() {
-    return this.state.orders && this.state.orders.map(order => {
-        const date = new Date(order.orderedDate);
+    return (
+      this.state.orders &&
+      this.state.orders.map(order => {
+        const date = new Date(order.orderDate);
         return (
           <div key={order.id} className="col-md-3">
             <hr />
@@ -37,33 +39,32 @@ class Order extends Component {
                 X
               </button>
             </p>
-            <h5>
-              วันที่ {date.toLocaleDateString} {date.toLocaleTimeString}
-            </h5>
+            <h5>วันที่ {date.toLocaleDateString() + " " + date.toLocaleTimeString()}</h5>
             <ul>
-              {order.orders && order.orders.map(record => {
-                  return (
-                    <li key={record.product.productId}>
-                      {record.product.productName} x {record.quantity} ={" "}
-                      {record.product.unitPrice * record.quantity}
-                    </li>
-                  );
-                })}
+              {order.orders &&
+                order.orders.map(record => (
+                  <li key={record.product.productId}>
+                    {record.product.productName} x {record.quantity} ={" "}
+                    {record.product.unitPrice * record.quantity}
+                  </li>
+                ))}
             </ul>
             <p className="title">ยอดรวม {order.totalPrice}</p>
           </div>
         );
       })
+    );
   }
 
   render() {
     return (
       <div>
         <Header />
-        <div className="container-fluid"></div>
-        <h4>รายการสั่งซื้อ</h4>
-        {this.showOrders()}
-        <Footer company="Olanlab" email="olan@olanlab.com" />
+        <div className="container-fluid">
+          <h1>รายการสั่งซื้อ</h1>
+          <div className="row">{this.showOrders()}</div>
+        </div>
+        <Footer />
       </div>
     );
   }

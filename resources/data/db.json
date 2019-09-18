@@ -71,6 +71,49 @@
         }
       ],
       "id": 1
+    },
+    {
+      "orderDate": "2019-09-18T16:34:47.839Z",
+      "totalPrice": 630,
+      "orders": [
+        {
+          "product": {
+            "productId": 2,
+            "productName": "ไก่ทอด",
+            "unitPrice": "90",
+            "thumbnail": "/images/product/2.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "productId": 6,
+            "productName": "กาแฟ เฮลตี้ฟู้ด",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/6.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "productId": 5,
+            "productName": "เค้ก 3 ชั้น",
+            "unitPrice": "200",
+            "thumbnail": "/images/product/5.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "productId": 3,
+            "productName": "บิงซู",
+            "unitPrice": "200",
+            "thumbnail": "/images/product/3.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 2
     }
   ]
 }

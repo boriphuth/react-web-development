@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import ProductItem from "./ProductItem";
 
 class ProductList extends Component {
@@ -6,7 +6,12 @@ class ProductList extends Component {
     return (
       this.props.products &&
       this.props.products.map(product => (
-        <ProductItem key={product.productId} product={product} onAddOrder={this.props.onAddOrder} />
+        <ProductItem
+          key={product.productId}
+          product={product}
+          onAddOrder={this.props.onAddOrder}
+          onDeleteProduct={this.props.onDeleteProduct}
+        />
       ))
     );
   }

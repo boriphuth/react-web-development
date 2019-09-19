@@ -43,7 +43,7 @@ class Order extends Component {
             <ul>
               {order.orders &&
                 order.orders.map(record => (
-                  <li key={record.product.productId}>
+                  <li key={record.product.id}>
                     {record.product.productName} x {record.quantity} ={" "}
                     {record.product.unitPrice * record.quantity}
                   </li>
@@ -64,7 +64,7 @@ class Order extends Component {
           <h1>รายการสั่งซื้อ</h1>
           <div className="row">{this.showOrders()}</div>
         </div>
-        <Footer />
+        <Footer company="Olanlab" email="olan@olanlab.com" />
       </div>
     );
   }

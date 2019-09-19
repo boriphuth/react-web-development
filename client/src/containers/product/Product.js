@@ -55,7 +55,7 @@ class Product extends Component {
             onDelProduct={this.delProduct}
           />
         </div>
-        <Footer />
+        <Footer company="Olanlab" email="olan@olanlab.com" />
       </div>
     );
   }

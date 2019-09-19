@@ -7,10 +7,11 @@ class ProductList extends Component {
       this.props.products &&
       this.props.products.map(product => (
         <ProductItem
-          key={product.productId}
+          key={product.id}
           product={product}
           onAddOrder={this.props.onAddOrder}
-          onDeleteProduct={this.props.onDeleteProduct}
+          onEditProduct={this.props.onEditProduct}
+          onDelProduct={this.props.onDelProduct}
         />
       ))
     );

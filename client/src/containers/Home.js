@@ -12,7 +12,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-  // 3. axios
   axios.get("http://localhost:3001/products").then(res => {
     this.setState({ products : res.data})
   })

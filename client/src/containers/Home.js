@@ -2,30 +2,32 @@ import React, { Component } from 'react';
 import Header from "../components/Header";
 import Monitor from "../components/monitor/Monitor";
 import Footer from "../components/Footer";
-import axios from "axios";
+import { connect } from "react-redux";
+import { productsFetch } from "../actions";
 
 class Home extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {products : ""};
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
-  axios.get("http://localhost:3001/products").then(res => {
-    this.setState({ products : res.data})
-  })
+    this.props.productsFetch();
   }
 
   render() {
     return (
       <div>
         <Header />
-        <Monitor products={this.state.products} />
+        <Monitor products={this.props.products} />
         <Footer company="Olanlab" email="olan@olanlab.com" />
       </div>
     );
   }
 }
 
-export default Home;
+function mapStateToProps({ products }) {
+  return { products };
+}
+
+export default connect(mapStateToProps, { productsFetch })(Home);
